@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://c8vo0d7gmb1hq"]
+
+[ext_resource type="Script" path="res://scripts/terminal_input.gd" id="1_dhnhw"]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_dhnhw")
+
+[node name="LineEdit" type="LineEdit" parent="."]
+offset_right = 251.0
+offset_bottom = 31.0
+
+[node name="Label" type="Label" parent="."]
+offset_top = 36.0
+offset_right = 251.0
+offset_bottom = 59.0

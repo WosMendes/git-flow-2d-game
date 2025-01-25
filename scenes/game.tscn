@@ -1,11 +1,14 @@
-[gd_scene load_steps=13 format=3 uid="uid://b2goh0g8rbqqg"]
+[gd_scene load_steps=16 format=3 uid="uid://b2goh0g8rbqqg"]
 
+[ext_resource type="PackedScene" uid="uid://cg75t0l2b82yi" path="res://scenes/game_manager.tscn" id="1_0lpax"]
 [ext_resource type="PackedScene" uid="uid://dxkqvtsrrbx8k" path="res://scenes/player.tscn" id="1_erta2"]
 [ext_resource type="Texture2D" uid="uid://dxp48wthpxw3c" path="res://assets/sprites/world_tileset.png" id="2_olegc"]
 [ext_resource type="PackedScene" uid="uid://dvfbydulkannc" path="res://scenes/platform.tscn" id="3_2a84v"]
 [ext_resource type="PackedScene" uid="uid://cjbbb3cdyr352" path="res://scenes/coin.tscn" id="4_2vorn"]
 [ext_resource type="PackedScene" uid="uid://i27wugp05fts" path="res://scenes/killzone.tscn" id="5_k4g8y"]
 [ext_resource type="PackedScene" uid="uid://c5gunsupiy1dr" path="res://scenes/enemy.tscn" id="6_5qaya"]
+[ext_resource type="FontFile" uid="uid://dnmad0xyotfer" path="res://assets/fonts/PixelOperator8.ttf" id="7_pwy0f"]
+[ext_resource type="PackedScene" uid="uid://uicnivuoefug" path="res://scenes/game_ui.tscn" id="9_uxw3i"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mh88m"]
 texture = ExtResource("2_olegc")
@@ -453,6 +456,9 @@ _data = {
 
 [node name="Game" type="Node2D"]
 
+[node name="GameManager" parent="." instance=ExtResource("1_0lpax")]
+unique_name_in_owner = true
+
 [node name="TileMap" type="TileMap" parent="."]
 position = Vector2(1, -2)
 tile_set = SubResource("TileSet_l1a8w")
@@ -504,3 +510,15 @@ autoplay = "horizontal_move"
 
 [node name="Enemy" parent="." instance=ExtResource("6_5qaya")]
 position = Vector2(-67, -130)
+
+[node name="Label" type="Label" parent="."]
+visible = false
+offset_left = -93.0
+offset_top = 1.0
+offset_right = 46.0
+offset_bottom = 24.0
+theme_override_fonts/font = ExtResource("7_pwy0f")
+theme_override_font_sizes/font_size = 8
+text = "Espaço para pular..."
+
+[node name="GUI" parent="." instance=ExtResource("9_uxw3i")]
