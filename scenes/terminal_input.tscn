@@ -1,9 +1,21 @@
 [gd_scene load_steps=2 format=3 uid="uid://c8vo0d7gmb1hq"]
 
-[ext_resource type="Script" path="res://scripts/terminal_input.gd" id="1_dhnhw"]
+[sub_resource type="GDScript" id="GDScript_4i3wc"]
+script/source = "extends Node2D
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	pass
+"
 
 [node name="Node2D" type="Node2D"]
-script = ExtResource("1_dhnhw")
+script = SubResource("GDScript_4i3wc")
 
 [node name="LineEdit" type="LineEdit" parent="."]
 offset_right = 251.0

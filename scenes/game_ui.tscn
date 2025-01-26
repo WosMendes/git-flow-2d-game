@@ -1,9 +1,26 @@
-[gd_scene load_steps=3 format=3 uid="uid://uicnivuoefug"]
+[gd_scene load_steps=5 format=3 uid="uid://uicnivuoefug"]
 
+[ext_resource type="Script" path="res://scripts/game_ui.gd" id="1_2wtxt"]
 [ext_resource type="FontFile" uid="uid://dnmad0xyotfer" path="res://assets/fonts/PixelOperator8.ttf" id="1_06n5i"]
 [ext_resource type="Script" path="res://scripts/countdown.gd" id="1_tweoo"]
 
+[sub_resource type="GDScript" id="GDScript_rlgpc"]
+script/source = "extends Node2D
+#
+##@onready var game_manager = %GameManager
+##@onready var percentage_label = $PercentageLabel
+##
+##
+##func _ready():
+	##game_manager = %GameManager
+	##
+### Called every frame. 'delta' is the elapsed time since the previous frame.
+##func _process(delta):
+	##percentage_label.text = str(game_manager.taskProgress) + \"%\"
+"
+
 [node name="GUI" type="CanvasLayer"]
+script = ExtResource("1_2wtxt")
 
 [node name="Countdown" type="Node" parent="."]
 script = ExtResource("1_tweoo")
@@ -34,5 +51,40 @@ process_callback = 0
 wait_time = 60.0
 one_shot = true
 autostart = true
+
+[node name="TaskProgress" type="Node2D" parent="."]
+script = SubResource("GDScript_rlgpc")
+
+[node name="ProgressLabel" type="Label" parent="TaskProgress"]
+offset_left = 27.0
+offset_top = 21.0
+offset_right = 126.0
+offset_bottom = 45.0
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_y = 4
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("1_06n5i")
+theme_override_font_sizes/font_size = 24
+text = "Progresso:"
+
+[node name="PercentageLabel" type="Label" parent="TaskProgress"]
+offset_left = 239.0
+offset_top = 21.0
+offset_right = 337.0
+offset_bottom = 45.0
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_y = 4
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("1_06n5i")
+theme_override_font_sizes/font_size = 24
+text = "0%"
 
 [connection signal="timeout" from="Countdown/Timer" to="Countdown" method="_on_timer_timeout"]

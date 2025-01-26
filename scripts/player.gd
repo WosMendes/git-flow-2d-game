@@ -4,6 +4,7 @@ extends CharacterBody2D
 const SPEED = 100.0
 const JUMP_VELOCITY = -300.0
 
+@onready var game_manager = %GameManager
 @onready var animated_sprite = $AnimatedSprite2D
 
 
@@ -12,6 +13,9 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 
 func _physics_process(delta):
+	if game_manager.isOnDialogueFocus:
+		return
+	
 	# Add the gravity.
 	if not is_on_floor():
 		velocity.y += gravity * delta

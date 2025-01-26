@@ -1,0 +1,70 @@
+[gd_scene load_steps=5 format=3 uid="uid://ln2lxrtq7b38"]
+
+[ext_resource type="Script" path="res://scripts/push_terminal.gd" id="1_u02i1"]
+[ext_resource type="Texture2D" uid="uid://78e47hxq32f8" path="res://assets/lab_assets/CyberLab/CL_Objects 16x16.png" id="1_xmdpw"]
+[ext_resource type="FontFile" uid="uid://dnmad0xyotfer" path="res://assets/fonts/PixelOperator8.ttf" id="3_apuxs"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8unjw"]
+size = Vector2(52, 27.5)
+
+[node name="PushTerminal" type="Node2D"]
+script = ExtResource("1_u02i1")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, -14.25)
+shape = SubResource("RectangleShape2D_8unjw")
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D"]
+position = Vector2(0, -14)
+texture = ExtResource("1_xmdpw")
+region_enabled = true
+region_rect = Rect2(33, 85, 46, 27)
+
+[node name="ConfirmationDialog" type="ConfirmationDialog" parent="."]
+title = "Terminal"
+initial_position = 1
+size = Vector2i(364, 158)
+visible = true
+ok_button_text = "Enviar"
+dialog_hide_on_ok = false
+dialog_autowrap = true
+cancel_button_text = "Cancelar"
+
+[node name="CommandStatus" type="Label" parent="ConfirmationDialog"]
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 356.0
+offset_bottom = 109.0
+text = "Status: Aguardando comando..."
+
+[node name="TerminalLine" type="LineEdit" parent="ConfirmationDialog"]
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 356.0
+offset_bottom = 109.0
+
+[node name="HintLabel" type="Label" parent="."]
+offset_left = -32.0
+offset_top = -54.0
+offset_right = 34.0
+offset_bottom = -31.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 1
+theme_override_constants/outline_size = 3
+theme_override_fonts/font = ExtResource("3_apuxs")
+theme_override_font_sizes/font_size = 8
+text = "Aperte T"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
+[connection signal="canceled" from="ConfirmationDialog" to="." method="_on_confirmation_dialog_canceled"]
+[connection signal="close_requested" from="ConfirmationDialog" to="." method="_on_confirmation_dialog_close_requested"]
+[connection signal="confirmed" from="ConfirmationDialog" to="." method="_on_confirmation_dialog_confirmed"]
