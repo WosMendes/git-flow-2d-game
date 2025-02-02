@@ -1,13 +1,30 @@
 extends Node
 
-var isOnDialogueFocus: bool = false
-var score: int = 0
-var taskProgress: int = 0
+@export var playerSpawnLocations: Array[Marker2D]
+@export var player: CharacterBody2D
 
-func addPoint():
-	score += 1
-	print(score)
+var isOnDialogueFocus: bool = false
+var commits: int = 0
+var taskProgress: int = 0
+var currentBranch: String = ""
+var currentLevelIndex: int = 0
+
+func _ready():
+	player.global_position = playerSpawnLocations[currentLevelIndex].global_position
+
+func addCommit():
+	commits += 1
+	print(commits)
 	
 func addProgress(progressValue: int):
 	taskProgress += progressValue
-	print(taskProgress)
+	print("Progresso aumentou em " + str(taskProgress) + "%")
+
+func goToNextLevel():
+	if taskProgress >= 100:
+		return
+	elif currentLevelIndex < (playerSpawnLocations.size() - 1):
+		currentLevelIndex += 1
+	else:
+		currentLevelIndex = 0
+	player.global_position = playerSpawnLocations[currentLevelIndex].global_position

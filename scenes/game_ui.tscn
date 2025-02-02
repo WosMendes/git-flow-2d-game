@@ -48,7 +48,7 @@ metadata/_edit_use_anchors_ = true
 
 [node name="Timer" type="Timer" parent="Countdown"]
 process_callback = 0
-wait_time = 60.0
+wait_time = 600.0
 one_shot = true
 autostart = true
 
@@ -86,5 +86,76 @@ theme_override_constants/outline_size = 8
 theme_override_fonts/font = ExtResource("1_06n5i")
 theme_override_font_sizes/font_size = 24
 text = "0%"
+
+[node name="BranchName" type="Node2D" parent="."]
+script = SubResource("GDScript_rlgpc")
+
+[node name="BranchLabel" type="Label" parent="BranchName"]
+offset_left = 27.0
+offset_top = 601.0
+offset_right = 231.0
+offset_bottom = 625.0
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_y = 4
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("1_06n5i")
+theme_override_font_sizes/font_size = 24
+text = "branch: "
+
+[node name="BranchNameLabel" type="Label" parent="BranchName"]
+offset_left = 172.0
+offset_top = 601.0
+offset_right = 376.0
+offset_bottom = 625.0
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_y = 4
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("1_06n5i")
+theme_override_font_sizes/font_size = 24
+text = "[name]"
+
+[node name="CommitCount" type="Node2D" parent="."]
+position = Vector2(845, 0)
+script = SubResource("GDScript_rlgpc")
+
+[node name="CommitLabel" type="Label" parent="CommitCount"]
+offset_left = 27.0
+offset_top = 21.0
+offset_right = 126.0
+offset_bottom = 45.0
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_y = 4
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("1_06n5i")
+theme_override_font_sizes/font_size = 24
+text = "Commits:"
+
+[node name="CommitCountLabel" type="Label" parent="CommitCount"]
+offset_left = 209.0
+offset_top = 21.0
+offset_right = 307.0
+offset_bottom = 45.0
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_y = 4
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("1_06n5i")
+theme_override_font_sizes/font_size = 24
+text = "0"
 
 [connection signal="timeout" from="Countdown/Timer" to="Countdown" method="_on_timer_timeout"]

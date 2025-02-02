@@ -1,15 +1,14 @@
 [gd_scene load_steps=3 format=3 uid="uid://dvfbydulkannc"]
 
-[ext_resource type="Texture2D" uid="uid://csul1133l50rt" path="res://assets/sprites/platforms.png" id="1_3j5hm"]
+[ext_resource type="Texture2D" uid="uid://kxmgyyk5nhhj" path="res://assets/lab_assets/Ancient Ruins/Animations/Moving Platform/MovingPlatformOff(32x16).png" id="1_xvrky"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_csnj8"]
-size = Vector2(30, 8)
+size = Vector2(32, 4)
 
 [node name="Platform" type="AnimatableBody2D"]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_3j5hm")
-region_enabled = true
+texture = ExtResource("1_xvrky")
 region_rect = Rect2(16, 0, 32, 9)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

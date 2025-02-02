@@ -41,15 +41,18 @@ func _on_confirmation_dialog_canceled():
 
 
 func _on_confirmation_dialog_confirmed():
-	if terminal_line.text == "git push origin fase1":
+	if terminal_line.text == "git push origin tutorial":
 		command_status.text = "Status: SUCESSO!"
-		game_manager.addProgress(10)
+		game_manager.addProgress(game_manager.commits * 50)
 		confirmation_dialog.gui_disable_input = true
 		await get_tree().create_timer(2).timeout
 		game_manager.isOnDialogueFocus = false
+		game_manager.commits = 0
 		_resetTerminalValues()
 		confirmation_dialog.hide()
+		game_manager.goToNextLevel()
 	elif terminal_line.text == "git checkout tutorial":
+		game_manager.currentBranch = "tutorial"
 		command_status.text = "Status: SUCESSO!"
 		confirmation_dialog.gui_disable_input = true
 		await get_tree().create_timer(2).timeout
