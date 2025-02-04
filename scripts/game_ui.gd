@@ -6,13 +6,11 @@ extends CanvasLayer
 @onready var commit_count_label = $CommitCount/CommitCountLabel
 @onready var branch_name_label = $BranchName/BranchNameLabel
 
-@export var branch_name: String = ""
-
 
 func _ready():
-	branch_name_label.text = branch_name
+	branch_name_label.text = game_manager.current_branch
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	percentage_label.text = str(game_manager.taskProgress) + "%"
 	commit_count_label.text = str(game_manager.commits)

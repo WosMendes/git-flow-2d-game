@@ -1,39 +1,60 @@
-[gd_scene load_steps=10 format=3 uid="uid://c5gunsupiy1dr"]
+[gd_scene load_steps=13 format=3 uid="uid://c5gunsupiy1dr"]
 
-[ext_resource type="Texture2D" uid="uid://dt1ww4equwddj" path="res://assets/sprites/slime_green.png" id="1_0srpy"]
 [ext_resource type="Script" path="res://scripts/enemy.gd" id="1_n5ol8"]
 [ext_resource type="PackedScene" uid="uid://i27wugp05fts" path="res://scenes/killzone.tscn" id="2_1jiln"]
+[ext_resource type="Texture2D" uid="uid://dfrotc031tpnm" path="res://assets/lab_assets/Ancient Ruins/Animations/Saw/SawOn(48x48).png" id="2_57l3p"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_e1und"]
-atlas = ExtResource("1_0srpy")
-region = Rect2(0, 24, 24, 24)
+[sub_resource type="AtlasTexture" id="AtlasTexture_x280e"]
+atlas = ExtResource("2_57l3p")
+region = Rect2(0, 0, 48, 48)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ugrp4"]
-atlas = ExtResource("1_0srpy")
-region = Rect2(24, 24, 24, 24)
+[sub_resource type="AtlasTexture" id="AtlasTexture_6mlot"]
+atlas = ExtResource("2_57l3p")
+region = Rect2(48, 0, 48, 48)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_y5mop"]
-atlas = ExtResource("1_0srpy")
-region = Rect2(48, 24, 24, 24)
+[sub_resource type="AtlasTexture" id="AtlasTexture_pinft"]
+atlas = ExtResource("2_57l3p")
+region = Rect2(96, 0, 48, 48)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_46aod"]
-atlas = ExtResource("1_0srpy")
-region = Rect2(72, 24, 24, 24)
+[sub_resource type="AtlasTexture" id="AtlasTexture_82jj6"]
+atlas = ExtResource("2_57l3p")
+region = Rect2(144, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gsyj2"]
+atlas = ExtResource("2_57l3p")
+region = Rect2(192, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u7h6j"]
+atlas = ExtResource("2_57l3p")
+region = Rect2(240, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ovr7i"]
+atlas = ExtResource("2_57l3p")
+region = Rect2(288, 0, 48, 48)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_48edg"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_e1und")
+"texture": SubResource("AtlasTexture_x280e")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ugrp4")
+"texture": SubResource("AtlasTexture_6mlot")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_y5mop")
+"texture": SubResource("AtlasTexture_pinft")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_46aod")
+"texture": SubResource("AtlasTexture_82jj6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gsyj2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u7h6j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ovr7i")
 }],
 "loop": true,
 "name": &"default",
@@ -41,8 +62,8 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rkcyb"]
-radius = 5.0
-height = 12.0
+radius = 18.0
+height = 36.0
 
 [node name="Enemy" type="Node2D"]
 script = ExtResource("1_n5ol8")
@@ -51,18 +72,18 @@ script = ExtResource("1_n5ol8")
 position = Vector2(0, -12)
 sprite_frames = SubResource("SpriteFrames_48edg")
 autoplay = "default"
-frame_progress = 0.403691
+frame_progress = 0.761271
 
 [node name="Killzone" parent="." instance=ExtResource("2_1jiln")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone"]
-position = Vector2(0, -5)
+position = Vector2(0, -11)
 shape = SubResource("CapsuleShape2D_rkcyb")
 
 [node name="RayCastRight" type="RayCast2D" parent="."]
-position = Vector2(0, -5)
+position = Vector2(9, -12)
 target_position = Vector2(8, 0)
 
 [node name="RayCastLeft" type="RayCast2D" parent="."]
-position = Vector2(0, -5)
+position = Vector2(-9, -12)
 target_position = Vector2(-8, 0)

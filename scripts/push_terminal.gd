@@ -14,18 +14,18 @@ func _ready():
 	confirmation_dialog.visible = false
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	if Input.is_action_just_pressed("open_terminal") and hint_label.visible == true:
 		confirmation_dialog.show()
 		terminal_line.grab_focus()
 		game_manager.isOnDialogueFocus = true
 
 
-func _on_area_2d_body_entered(body):
+func _on_area_2d_body_entered(_body):
 	hint_label.show()
 	
 
-func _on_area_2d_body_exited(body):
+func _on_area_2d_body_exited(_body):
 	hint_label.hide()
 
 	
@@ -41,18 +41,18 @@ func _on_confirmation_dialog_canceled():
 
 
 func _on_confirmation_dialog_confirmed():
-	if terminal_line.text == "git push origin tutorial":
+	if terminal_line.text == "git push origin " + game_manager.current_branch:
 		command_status.text = "Status: SUCESSO!"
-		game_manager.addProgress(game_manager.commits * 50)
 		confirmation_dialog.gui_disable_input = true
 		await get_tree().create_timer(2).timeout
 		game_manager.isOnDialogueFocus = false
+		game_manager.addProgress(game_manager.commits * game_manager.progress_by_commit)
 		game_manager.commits = 0
 		_resetTerminalValues()
 		confirmation_dialog.hide()
 		game_manager.goToNextLevel()
 	elif terminal_line.text == "git checkout tutorial":
-		game_manager.currentBranch = "tutorial"
+		game_manager.current_branch = "tutorial"
 		command_status.text = "Status: SUCESSO!"
 		confirmation_dialog.gui_disable_input = true
 		await get_tree().create_timer(2).timeout

@@ -2,6 +2,7 @@ extends Node
 
 @onready var countdown_text: Label = $CountdownText
 @onready var timer: Timer = $Timer
+@onready var game_over = $"../GameOver"
 
 func _ready():
 	timer.start()
@@ -13,8 +14,9 @@ func show_timer():
 	var seconds: int = int(time_left) % 60
 	return [minutes,seconds]
 
-func _process(delta):
+func _process(_delta):
 	countdown_text.text = "%02d:%02d" % show_timer()
 
 func _on_timer_timeout():
-	pass # Replace with function body.
+	get_tree().paused = true
+	game_over.show()

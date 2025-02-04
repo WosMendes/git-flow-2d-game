@@ -1315,6 +1315,7 @@ zoom = Vector2(4, 4)
 
 [node name="GameManager" parent="." node_paths=PackedStringArray("playerSpawnLocations", "player") instance=ExtResource("7_6lmtq")]
 unique_name_in_owner = true
+current_branch = "welcome"
 playerSpawnLocations = [NodePath("../Marker2D")]
 player = NodePath("../Player")
 
@@ -1379,7 +1380,6 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="GUI" parent="." instance=ExtResource("10_ntok0")]
-branch_name = "welcome"
 
 [node name="Marker2D" type="Marker2D" parent="."]
 position = Vector2(-937, 195)
