@@ -4,6 +4,7 @@ extends Node
 @export var playerSpawnLocations: Array[Marker2D]
 @export var player: CharacterBody2D
 @export var progress_by_commit: int = 20
+@export var hasToShowProgress: bool = true
 
 var isOnDialogueFocus: bool = false
 var commits: int = 0

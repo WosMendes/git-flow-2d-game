@@ -1318,6 +1318,7 @@ unique_name_in_owner = true
 current_branch = "welcome"
 playerSpawnLocations = [NodePath("../Marker2D")]
 player = NodePath("../Player")
+hasToShowProgress = false
 
 [node name="PushTerminal" parent="." instance=ExtResource("8_ij368")]
 position = Vector2(447, 224)

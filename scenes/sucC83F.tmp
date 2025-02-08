@@ -1,9 +1,10 @@
 [gd_scene load_steps=3 format=3 uid="uid://cfdpxxll7b3o8"]
 
-[ext_resource type="Script" path="res://scripts/menu_button.gd" id="2_h1l1t"]
 [ext_resource type="FontFile" uid="uid://dnmad0xyotfer" path="res://assets/fonts/PixelOperator8.ttf" id="2_hd2nj"]
+[ext_resource type="Script" path="res://scripts/button_to_main_menu.gd" id="2_pkljp"]
 
 [node name="Success" type="CanvasLayer"]
+process_mode = 2
 
 [node name="Panel" type="Panel" parent="."]
 anchors_preset = 8
@@ -75,6 +76,6 @@ grow_horizontal = 2
 grow_vertical = 0
 theme_override_fonts/font = ExtResource("2_hd2nj")
 text = "Menu Inicial"
-script = ExtResource("2_h1l1t")
+script = ExtResource("2_pkljp")
 
 [connection signal="pressed" from="MenuButton" to="MenuButton" method="_on_pressed"]

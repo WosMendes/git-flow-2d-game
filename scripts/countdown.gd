@@ -1,10 +1,12 @@
 extends Node
 
+@onready var gui = $".."
 @onready var countdown_text: Label = $CountdownText
 @onready var timer: Timer = $Timer
 @onready var game_over = $"../GameOver"
 
 func _ready():
+	timer.wait_time = gui.taskCountdownTimer
 	timer.start()
 	
 
