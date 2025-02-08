@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://dckg46q6daqtm"]
+[gd_scene load_steps=24 format=3 uid="uid://dckg46q6daqtm"]
 
 [ext_resource type="Texture2D" uid="uid://byldhbv6gi6mk" path="res://assets/lab_assets/CyberLab/0CL_CyberLab_TileSet 16x16.png" id="1_a0huq"]
 [ext_resource type="Texture2D" uid="uid://cxahqmlm6r7mo" path="res://assets/lab_assets/CyberLab/CL_BackGround 16x16.png" id="2_q4kk8"]
@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://dvfbydulkannc" path="res://scenes/platform.tscn" id="11_2oqj0"]
 [ext_resource type="PackedScene" uid="uid://cjbbb3cdyr352" path="res://scenes/commit.tscn" id="12_q4047"]
 [ext_resource type="PackedScene" uid="uid://c5gunsupiy1dr" path="res://scenes/enemy.tscn" id="13_vni4v"]
+[ext_resource type="AudioStream" uid="uid://p7pse1oe4tcf" path="res://assets/music/time_for_adventure.mp3" id="14_b2np4"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2f3wv"]
 texture = ExtResource("1_a0huq")
@@ -1346,7 +1347,6 @@ playerSpawnLocations = [NodePath("../SpawnPoints/Marker2DLevel1"), NodePath("../
 player = NodePath("../Player")
 
 [node name="GUI" parent="." instance=ExtResource("10_7mlay")]
-taskCountdownTimer = 300
 
 [node name="TileMaps" type="Node" parent="."]
 
@@ -1371,7 +1371,7 @@ layer_1/tile_data = PackedInt32Array(983031, 131076, 1, 1048567, 131076, 3, 9830
 position = Vector2(-2686, 223)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
-position = Vector2(0, -48)
+position = Vector2(0, -38)
 zoom = Vector2(4, 4)
 
 [node name="Terminals" type="Node" parent="."]
@@ -1631,3 +1631,8 @@ position = Vector2(327, 935)
 
 [node name="Platform6" parent="Plaforms" instance=ExtResource("11_2oqj0")]
 position = Vector2(399, 918)
+
+[node name="BackgroundMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("14_b2np4")
+autoplay = true
+bus = &"Music"

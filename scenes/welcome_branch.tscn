@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://cc63yu1afrfg6"]
+[gd_scene load_steps=18 format=3 uid="uid://cc63yu1afrfg6"]
 
 [ext_resource type="Texture2D" uid="uid://byldhbv6gi6mk" path="res://assets/lab_assets/CyberLab/0CL_CyberLab_TileSet 16x16.png" id="1_rvsqq"]
 [ext_resource type="Texture2D" uid="uid://cxahqmlm6r7mo" path="res://assets/lab_assets/CyberLab/CL_BackGround 16x16.png" id="2_4cko1"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://ln2lxrtq7b38" path="res://scenes/push_terminal.tscn" id="8_ij368"]
 [ext_resource type="FontFile" uid="uid://dnmad0xyotfer" path="res://assets/fonts/PixelOperator8.ttf" id="9_53e8e"]
 [ext_resource type="PackedScene" uid="uid://uicnivuoefug" path="res://scenes/game_ui.tscn" id="10_ntok0"]
+[ext_resource type="AudioStream" uid="uid://p7pse1oe4tcf" path="res://assets/music/time_for_adventure.mp3" id="11_f32rc"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2f3wv"]
 texture = ExtResource("1_rvsqq")
@@ -1384,3 +1385,8 @@ vertical_alignment = 1
 
 [node name="Marker2D" type="Marker2D" parent="."]
 position = Vector2(-937, 195)
+
+[node name="BackgroundMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_f32rc")
+autoplay = true
+bus = &"Music"
