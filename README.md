@@ -1,5 +1,8 @@
 # Git Flow 2D
 
+
+![Screenshot_1](https://github.com/user-attachments/assets/c7d67f42-92a4-47e5-9283-7488acca9c3b)
+
  ## 🎮 Sobre o Projeto
 
 Git Flow 2D é um jogo de plataforma 2D desenvolvido para ensinar de forma interativa e divertida o fluxo de trabalho com Git. O jogador assume o papel de um programador dentro de um ambiente virtual, onde precisa coletar commits.
