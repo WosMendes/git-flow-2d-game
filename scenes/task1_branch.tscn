@@ -10,7 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://dxkqvtsrrbx8k" path="res://scenes/player.tscn" id="8_xqrcg"]
 [ext_resource type="PackedScene" uid="uid://ln2lxrtq7b38" path="res://scenes/push_terminal.tscn" id="9_brn16"]
 [ext_resource type="FontFile" uid="uid://dnmad0xyotfer" path="res://assets/fonts/PixelOperator8.ttf" id="10_02jbj"]
-[ext_resource type="PackedScene" uid="uid://cjbbb3cdyr352" path="res://scenes/commit.tscn" id="11_25b7l"]
+[ext_resource type="PackedScene" uid="uid://cjbbb3cdyr352" path="res://scenes/code_block.tscn" id="11_25b7l"]
 [ext_resource type="PackedScene" uid="uid://c5gunsupiy1dr" path="res://scenes/enemy.tscn" id="12_4gyyo"]
 [ext_resource type="PackedScene" uid="uid://dvfbydulkannc" path="res://scenes/platform.tscn" id="13_xvfnh"]
 [ext_resource type="AudioStream" uid="uid://racwvvtp2gy6" path="res://assets/music/task_1_track.ogg" id="14_fyn4e"]
@@ -1346,7 +1346,7 @@ unique_name_in_owner = true
 current_branch = "task_1"
 playerSpawnLocations = [NodePath("../SpawnPoints/Marker2DLevel1"), NodePath("../SpawnPoints/Marker2DLevel2")]
 player = NodePath("../Player")
-progress_by_commit = 5
+progress_by_codeBlock = 5
 
 [node name="GUI" parent="." instance=ExtResource("2_3tj8f")]
 taskCountdownTimer = 240
@@ -1376,7 +1376,10 @@ position = Vector2(-3262, 197)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 position = Vector2(0, -35)
-zoom = Vector2(4, 4)
+zoom = Vector2(3, 3)
+drag_vertical_enabled = true
+drag_top_margin = 0.6
+drag_bottom_margin = 0.0
 
 [node name="Terminals" type="Node" parent="."]
 
@@ -1441,7 +1444,7 @@ offset_right = -2143.0
 offset_bottom = 937.0
 theme_override_fonts/font = ExtResource("10_02jbj")
 theme_override_font_sizes/font_size = 8
-text = "Pegue todos os commits..."
+text = "Pegue todos os blocos de código..."
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -1463,70 +1466,70 @@ offset_right = -104.0
 offset_bottom = 892.0
 theme_override_fonts/font = ExtResource("10_02jbj")
 theme_override_font_sizes/font_size = 8
-text = "Quase lá! Faça PUSH!"
+text = "Quase lá! Faça COMMIT!"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Commits" type="Node" parent="."]
+[node name="CodeBlocks" type="Node" parent="."]
 
-[node name="Commit" parent="Commits" instance=ExtResource("11_25b7l")]
+[node name="CodeBlock" parent="CodeBlocks" instance=ExtResource("11_25b7l")]
 position = Vector2(-2704, 127)
 
-[node name="Commit6" parent="Commits" instance=ExtResource("11_25b7l")]
+[node name="CodeBlock6" parent="CodeBlocks" instance=ExtResource("11_25b7l")]
 position = Vector2(-2368, 127)
 
-[node name="Commit7" parent="Commits" instance=ExtResource("11_25b7l")]
+[node name="CodeBlock7" parent="CodeBlocks" instance=ExtResource("11_25b7l")]
 position = Vector2(-2192, 187)
 
-[node name="Commit8" parent="Commits" instance=ExtResource("11_25b7l")]
+[node name="CodeBlock8" parent="CodeBlocks" instance=ExtResource("11_25b7l")]
 position = Vector2(-2095, 187)
 
-[node name="Commit9" parent="Commits" instance=ExtResource("11_25b7l")]
+[node name="CodeBlock9" parent="CodeBlocks" instance=ExtResource("11_25b7l")]
 position = Vector2(-1792, 111)
 
-[node name="Commit10" parent="Commits" instance=ExtResource("11_25b7l")]
+[node name="CodeBlock10" parent="CodeBlocks" instance=ExtResource("11_25b7l")]
 position = Vector2(-848, 139)
 
-[node name="Commit11" parent="Commits" instance=ExtResource("11_25b7l")]
+[node name="CodeBlock11" parent="CodeBlocks" instance=ExtResource("11_25b7l")]
 position = Vector2(-368, 139)
 
-[node name="Commit2" parent="Commits" instance=ExtResource("11_25b7l")]
+[node name="CodeBlock2" parent="CodeBlocks" instance=ExtResource("11_25b7l")]
 position = Vector2(-847, 880)
 
-[node name="Commit3" parent="Commits" instance=ExtResource("11_25b7l")]
+[node name="CodeBlock3" parent="CodeBlocks" instance=ExtResource("11_25b7l")]
 position = Vector2(-1067, 920)
 
-[node name="Commit12" parent="Commits" instance=ExtResource("11_25b7l")]
+[node name="CodeBlock12" parent="CodeBlocks" instance=ExtResource("11_25b7l")]
 position = Vector2(-1464, 932)
 
-[node name="Commit13" parent="Commits" instance=ExtResource("11_25b7l")]
+[node name="CodeBlock13" parent="CodeBlocks" instance=ExtResource("11_25b7l")]
 position = Vector2(-1528, 932)
 
-[node name="Commit15" parent="Commits" instance=ExtResource("11_25b7l")]
+[node name="CodeBlock15" parent="CodeBlocks" instance=ExtResource("11_25b7l")]
 position = Vector2(-2120, 932)
 
-[node name="Commit19" parent="Commits" instance=ExtResource("11_25b7l")]
+[node name="CodeBlock19" parent="CodeBlocks" instance=ExtResource("11_25b7l")]
 position = Vector2(-2271, 932)
 
-[node name="Commit20" parent="Commits" instance=ExtResource("11_25b7l")]
+[node name="CodeBlock20" parent="CodeBlocks" instance=ExtResource("11_25b7l")]
 position = Vector2(-1963, 932)
 
-[node name="Commit14" parent="Commits" instance=ExtResource("11_25b7l")]
+[node name="CodeBlock14" parent="CodeBlocks" instance=ExtResource("11_25b7l")]
 position = Vector2(-1400, 932)
 
-[node name="Commit18" parent="Commits" instance=ExtResource("11_25b7l")]
+[node name="CodeBlock18" parent="CodeBlocks" instance=ExtResource("11_25b7l")]
 position = Vector2(-1229, 968)
 
-[node name="Commit4" parent="Commits" instance=ExtResource("11_25b7l")]
+[node name="CodeBlock4" parent="CodeBlocks" instance=ExtResource("11_25b7l")]
 position = Vector2(-528, 880)
 
-[node name="Commit5" parent="Commits" instance=ExtResource("11_25b7l")]
+[node name="CodeBlock5" parent="CodeBlocks" instance=ExtResource("11_25b7l")]
 position = Vector2(-315, 931)
 
-[node name="Commit16" parent="Commits" instance=ExtResource("11_25b7l")]
+[node name="CodeBlock16" parent="CodeBlocks" instance=ExtResource("11_25b7l")]
 position = Vector2(-249, 908)
 
-[node name="Commit17" parent="Commits" instance=ExtResource("11_25b7l")]
+[node name="CodeBlock17" parent="CodeBlocks" instance=ExtResource("11_25b7l")]
 position = Vector2(-177, 891)
 
 [node name="SpawnPoints" type="Node" parent="."]
@@ -1613,6 +1616,9 @@ position = Vector2(-2446, 188)
 
 [node name="Platform12" parent="Plaforms" instance=ExtResource("13_xvfnh")]
 position = Vector2(-1889, 188)
+
+[node name="Platform16" parent="Plaforms" instance=ExtResource("13_xvfnh")]
+position = Vector2(-1744, 179)
 
 [node name="Platform13" parent="Plaforms" instance=ExtResource("13_xvfnh")]
 position = Vector2(-1695, 188)

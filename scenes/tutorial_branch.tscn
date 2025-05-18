@@ -11,7 +11,7 @@
 [ext_resource type="FontFile" uid="uid://dnmad0xyotfer" path="res://assets/fonts/PixelOperator8.ttf" id="9_lcprf"]
 [ext_resource type="PackedScene" uid="uid://uicnivuoefug" path="res://scenes/game_ui.tscn" id="10_7mlay"]
 [ext_resource type="PackedScene" uid="uid://dvfbydulkannc" path="res://scenes/platform.tscn" id="11_2oqj0"]
-[ext_resource type="PackedScene" uid="uid://cjbbb3cdyr352" path="res://scenes/commit.tscn" id="12_q4047"]
+[ext_resource type="PackedScene" uid="uid://cjbbb3cdyr352" path="res://scenes/code_block.tscn" id="12_q4047"]
 [ext_resource type="PackedScene" uid="uid://c5gunsupiy1dr" path="res://scenes/enemy.tscn" id="13_vni4v"]
 [ext_resource type="AudioStream" uid="uid://p7pse1oe4tcf" path="res://assets/music/time_for_adventure.mp3" id="14_b2np4"]
 
@@ -1435,7 +1435,7 @@ offset_right = -786.0
 offset_bottom = 188.0
 theme_override_fonts/font = ExtResource("9_lcprf")
 theme_override_font_sizes/font_size = 8
-text = "Você precisa coletar blocos de código, também conhecidos como commits..."
+text = "Você precisa coletar os códigos espalhados pela branch..."
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -1446,7 +1446,7 @@ offset_right = -232.0
 offset_bottom = 188.0
 theme_override_fonts/font = ExtResource("9_lcprf")
 theme_override_font_sizes/font_size = 8
-text = "Este é um commit..."
+text = "Este é um bloco de código..."
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -1469,8 +1469,8 @@ offset_bottom = 139.0
 theme_override_fonts/font = ExtResource("9_lcprf")
 theme_override_font_sizes/font_size = 8
 text = "Use o terminal ao lado. 
-Para enviar commits, use:
-git push origin [nome da branch]"
+Para registrar os códigos, use:
+git commit"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -1494,7 +1494,7 @@ offset_right = -2174.0
 offset_bottom = 941.0
 theme_override_fonts/font = ExtResource("9_lcprf")
 theme_override_font_sizes/font_size = 8
-text = "Você se teleporta sempre que faz \"push\"..."
+text = "Você se teleporta sempre que faz um \"commit\"..."
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -1505,7 +1505,7 @@ offset_right = -1682.0
 offset_bottom = 941.0
 theme_override_fonts/font = ExtResource("9_lcprf")
 theme_override_font_sizes/font_size = 8
-text = "Assim pode explorar novos lugares dentro da branch para encontrar novos commits..."
+text = "Assim pode explorar novos lugares dentro da branch para encontrar novos blocos de código..."
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -1538,7 +1538,7 @@ offset_right = -284.0
 offset_bottom = 941.0
 theme_override_fonts/font = ExtResource("9_lcprf")
 theme_override_font_sizes/font_size = 8
-text = "Mais commits à frente..."
+text = "Mais blocos de código à frente..."
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -1560,26 +1560,26 @@ offset_right = 472.0
 offset_bottom = 896.0
 theme_override_fonts/font = ExtResource("9_lcprf")
 theme_override_font_sizes/font_size = 8
-text = "Lembra do comando de push?
-git push origin [nome da branch]"
+text = "Lembra do comando para registrar os códigos?
+git commit"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Commits" type="Node" parent="."]
+[node name="CodeBlocks" type="Node" parent="."]
 
-[node name="Commit" parent="Commits" instance=ExtResource("12_q4047")]
+[node name="CodeBlock" parent="CodeBlocks" instance=ExtResource("12_q4047")]
 position = Vector2(-256, 198)
 
-[node name="Commit2" parent="Commits" instance=ExtResource("12_q4047")]
+[node name="CodeBlock2" parent="CodeBlocks" instance=ExtResource("12_q4047")]
 position = Vector2(-271, 884)
 
-[node name="Commit3" parent="Commits" instance=ExtResource("12_q4047")]
+[node name="CodeBlock3" parent="CodeBlocks" instance=ExtResource("12_q4047")]
 position = Vector2(63, 943)
 
-[node name="Commit4" parent="Commits" instance=ExtResource("12_q4047")]
+[node name="CodeBlock4" parent="CodeBlocks" instance=ExtResource("12_q4047")]
 position = Vector2(48, 884)
 
-[node name="Commit5" parent="Commits" instance=ExtResource("12_q4047")]
+[node name="CodeBlock5" parent="CodeBlocks" instance=ExtResource("12_q4047")]
 position = Vector2(261, 935)
 
 [node name="SpawnPoints" type="Node" parent="."]

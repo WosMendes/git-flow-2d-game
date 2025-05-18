@@ -70,9 +70,8 @@ animations = [{
 "speed": 10.0
 }]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6xg1p"]
-radius = 5.0
-height = 14.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4gvpj"]
+size = Vector2(10, 14)
 
 [node name="Player" type="CharacterBody2D"]
 z_index = 5
@@ -84,10 +83,9 @@ script = ExtResource("1_mtn0m")
 position = Vector2(0, -8)
 scale = Vector2(1.25, 1.25)
 sprite_frames = SubResource("SpriteFrames_y2hso")
-animation = &"run"
+animation = &"jump"
 autoplay = "idle"
-frame_progress = 0.440843
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -5)
-shape = SubResource("CapsuleShape2D_6xg1p")
+shape = SubResource("RectangleShape2D_4gvpj")

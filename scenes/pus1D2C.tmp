@@ -28,6 +28,7 @@ region_rect = Rect2(33, 85, 46, 27)
 title = "Terminal"
 initial_position = 1
 size = Vector2i(364, 158)
+visible = true
 ok_button_text = "Enviar"
 dialog_hide_on_ok = false
 dialog_autowrap = true
