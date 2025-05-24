@@ -13,7 +13,7 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 
 func _physics_process(delta):
-	if game_manager.isOnDialogueFocus:
+	if Global.is_terminal_on_screen:
 		return
 	
 	# Add the gravity.

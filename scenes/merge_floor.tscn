@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://ckck30ys03exf"]
+[gd_scene load_steps=27 format=3 uid="uid://ckck30ys03exf"]
 
 [ext_resource type="Texture2D" uid="uid://byldhbv6gi6mk" path="res://assets/lab_assets/CyberLab/0CL_CyberLab_TileSet 16x16.png" id="1_2ywdj"]
 [ext_resource type="Texture2D" uid="uid://cxahqmlm6r7mo" path="res://assets/lab_assets/CyberLab/CL_BackGround 16x16.png" id="2_p25ry"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://cg75t0l2b82yi" path="res://scenes/game_manager.tscn" id="7_yjyj1"]
 [ext_resource type="PackedScene" uid="uid://ln2lxrtq7b38" path="res://scenes/push_terminal.tscn" id="8_m0mwl"]
 [ext_resource type="FontFile" uid="uid://dnmad0xyotfer" path="res://assets/fonts/PixelOperator8.ttf" id="9_x0ng1"]
+[ext_resource type="Script" path="res://scenes/destination_branch_label.gd" id="10_1qhbs"]
 [ext_resource type="PackedScene" uid="uid://uicnivuoefug" path="res://scenes/game_ui.tscn" id="10_nq1n7"]
 [ext_resource type="AudioStream" uid="uid://racwvvtp2gy6" path="res://assets/music/task_1_track.ogg" id="11_nfl45"]
 [ext_resource type="PackedScene" uid="uid://dvfbydulkannc" path="res://scenes/platform.tscn" id="12_ghxae"]
@@ -1300,22 +1301,6 @@ sources/2 = SubResource("TileSetAtlasSource_o0lu2")
 sources/3 = SubResource("TileSetAtlasSource_hw56m")
 sources/4 = SubResource("TileSetAtlasSource_i04ew")
 
-[sub_resource type="Animation" id="Animation_s1h34"]
-resource_name = "move_vertically"
-loop_mode = 2
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(259, 130), Vector2(259, 210)]
-}
-
 [sub_resource type="Animation" id="Animation_dew4g"]
 length = 0.001
 loop_mode = 2
@@ -1330,6 +1315,22 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector2(396, 130)]
+}
+
+[sub_resource type="Animation" id="Animation_s1h34"]
+resource_name = "move_vertically"
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(259, 130), Vector2(259, 210)]
 }
 
 [sub_resource type="Animation" id="Animation_8aa1j"]
@@ -1535,15 +1536,16 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="destination_branch_label" type="Label" parent="Tips"]
-offset_left = 3171.0
+offset_left = 3170.0
 offset_top = 158.0
-offset_right = 3276.0
+offset_right = 3270.0
 offset_bottom = 181.0
 theme_override_fonts/font = ExtResource("9_x0ng1")
 theme_override_font_sizes/font_size = 8
 text = "[brach_destino]"
 horizontal_alignment = 1
 vertical_alignment = 1
+script = ExtResource("10_1qhbs")
 
 [node name="Label12" type="Label" parent="Tips"]
 offset_left = 3349.0
@@ -1613,7 +1615,7 @@ position = Vector2(391, 217)
 scale = Vector2(0.75, 0.75)
 
 [node name="Enemy5" parent="." instance=ExtResource("13_ipx50")]
-position = Vector2(1826, 219)
+position = Vector2(1818, 219)
 scale = Vector2(0.5, 0.5)
 
 [node name="Enemy6" parent="." instance=ExtResource("13_ipx50")]
@@ -1625,7 +1627,7 @@ position = Vector2(1816, 112)
 scale = Vector2(0.5, 0.5)
 
 [node name="Enemy10" parent="." instance=ExtResource("13_ipx50")]
-position = Vector2(1924, 190)
+position = Vector2(1925, 190)
 scale = Vector2(0.5, 0.5)
 
 [node name="Enemy7" parent="." instance=ExtResource("13_ipx50")]

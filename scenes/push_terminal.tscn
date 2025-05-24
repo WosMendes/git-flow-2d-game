@@ -1,9 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://ln2lxrtq7b38"]
+[gd_scene load_steps=5 format=3 uid="uid://ln2lxrtq7b38"]
 
 [ext_resource type="Script" path="res://scripts/push_terminal.gd" id="1_u02i1"]
 [ext_resource type="Texture2D" uid="uid://78e47hxq32f8" path="res://assets/lab_assets/CyberLab/CL_Objects 16x16.png" id="1_xmdpw"]
 [ext_resource type="FontFile" uid="uid://dnmad0xyotfer" path="res://assets/fonts/PixelOperator8.ttf" id="3_apuxs"]
-[ext_resource type="Script" path="res://scripts/terminal_dialog.gd" id="3_dsm2t"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8unjw"]
 size = Vector2(52, 27.5)
@@ -32,7 +31,6 @@ ok_button_text = "Enviar"
 dialog_hide_on_ok = false
 dialog_autowrap = true
 cancel_button_text = "Cancelar"
-script = ExtResource("3_dsm2t")
 
 [node name="CommandStatus" type="Label" parent="ConfirmationDialog"]
 offset_left = 8.0

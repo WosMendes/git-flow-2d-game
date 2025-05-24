@@ -6,7 +6,6 @@ extends Node
 @export var progress_by_codeBlock: int = 20
 @export var hasToShowProgress: bool = true
 
-var isOnDialogueFocus: bool = false
 var codeBlocks: int = 0
 var taskProgress: int = 0
 var currentLevelIndex: int = 0
