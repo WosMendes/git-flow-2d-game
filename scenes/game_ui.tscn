@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://uicnivuoefug"]
+[gd_scene load_steps=7 format=3 uid="uid://uicnivuoefug"]
 
 [ext_resource type="Script" path="res://scripts/game_ui.gd" id="1_2wtxt"]
 [ext_resource type="FontFile" uid="uid://dnmad0xyotfer" path="res://assets/fonts/PixelOperator8.ttf" id="1_06n5i"]
 [ext_resource type="Script" path="res://scripts/countdown.gd" id="1_tweoo"]
 [ext_resource type="PackedScene" uid="uid://cuoxjav60ep0l" path="res://scenes/game_over.tscn" id="4_wklvx"]
+[ext_resource type="PackedScene" uid="uid://cpi5ec0k23afh" path="res://scenes/pause_menu.tscn" id="5_d7328"]
 
 [sub_resource type="GDScript" id="GDScript_rlgpc"]
 script/source = "extends Node2D
@@ -71,6 +72,7 @@ theme_override_constants/outline_size = 8
 theme_override_fonts/font = ExtResource("1_06n5i")
 theme_override_font_sizes/font_size = 24
 text = "Progresso:"
+metadata/_edit_use_anchors_ = true
 
 [node name="PercentageLabel" type="Label" parent="TaskProgress"]
 offset_left = 239.0
@@ -128,8 +130,9 @@ position = Vector2(845, 0)
 script = SubResource("GDScript_rlgpc")
 
 [node name="CodeBlockLabel" type="Label" parent="CodeBlockCount"]
+offset_left = 38.0
 offset_top = 21.0
-offset_right = 231.0
+offset_right = 236.0
 offset_bottom = 45.0
 size_flags_horizontal = 4
 size_flags_vertical = 0
@@ -140,7 +143,7 @@ theme_override_constants/shadow_offset_y = 4
 theme_override_constants/outline_size = 8
 theme_override_fonts/font = ExtResource("1_06n5i")
 theme_override_font_sizes/font_size = 24
-text = "Code blocks:"
+text = "Código(s):"
 metadata/_edit_use_anchors_ = true
 
 [node name="CodeBlockCountLabel" type="Label" parent="CodeBlockCount"]
@@ -148,7 +151,7 @@ offset_left = 238.0
 offset_top = 23.0
 offset_right = 336.0
 offset_bottom = 47.0
-size_flags_horizontal = 4
+size_flags_horizontal = 2
 size_flags_vertical = 0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
@@ -162,5 +165,13 @@ metadata/_edit_use_anchors_ = true
 
 [node name="GameOver" parent="." instance=ExtResource("4_wklvx")]
 visible = false
+
+[node name="PauseMenu" parent="." instance=ExtResource("5_d7328")]
+visible = false
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+grow_horizontal = 1
+grow_vertical = 1
 
 [connection signal="timeout" from="Countdown/Timer" to="Countdown" method="_on_timer_timeout"]
