@@ -24,10 +24,14 @@ script/source = "extends Node2D
 [node name="GUI" type="CanvasLayer"]
 script = ExtResource("1_2wtxt")
 
-[node name="Countdown" type="Node" parent="."]
+[node name="PanelContainer" type="PanelContainer" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Countdown" type="Node" parent="PanelContainer"]
 script = ExtResource("1_tweoo")
 
-[node name="CountdownText" type="Label" parent="Countdown"]
+[node name="CountdownText" type="Label" parent="PanelContainer/Countdown"]
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
@@ -48,16 +52,16 @@ theme_override_font_sizes/font_size = 24
 text = "01:00"
 metadata/_edit_use_anchors_ = true
 
-[node name="Timer" type="Timer" parent="Countdown"]
+[node name="Timer" type="Timer" parent="PanelContainer/Countdown"]
 process_callback = 0
 wait_time = 600.0
 one_shot = true
 autostart = true
 
-[node name="TaskProgress" type="Node2D" parent="."]
+[node name="TaskProgress" type="Node2D" parent="PanelContainer"]
 script = SubResource("GDScript_rlgpc")
 
-[node name="ProgressLabel" type="Label" parent="TaskProgress"]
+[node name="ProgressLabel" type="Label" parent="PanelContainer/TaskProgress"]
 offset_left = 27.0
 offset_top = 21.0
 offset_right = 126.0
@@ -74,7 +78,7 @@ theme_override_font_sizes/font_size = 24
 text = "Progresso:"
 metadata/_edit_use_anchors_ = true
 
-[node name="PercentageLabel" type="Label" parent="TaskProgress"]
+[node name="PercentageLabel" type="Label" parent="PanelContainer/TaskProgress"]
 offset_left = 239.0
 offset_top = 21.0
 offset_right = 337.0
@@ -90,10 +94,10 @@ theme_override_fonts/font = ExtResource("1_06n5i")
 theme_override_font_sizes/font_size = 24
 text = "0%"
 
-[node name="BranchName" type="Node2D" parent="."]
+[node name="BranchName" type="Node2D" parent="PanelContainer"]
 script = SubResource("GDScript_rlgpc")
 
-[node name="BranchLabel" type="Label" parent="BranchName"]
+[node name="BranchLabel" type="Label" parent="PanelContainer/BranchName"]
 offset_left = 27.0
 offset_top = 601.0
 offset_right = 231.0
@@ -109,7 +113,7 @@ theme_override_fonts/font = ExtResource("1_06n5i")
 theme_override_font_sizes/font_size = 24
 text = "branch: "
 
-[node name="BranchNameLabel" type="Label" parent="BranchName"]
+[node name="BranchNameLabel" type="Label" parent="PanelContainer/BranchName"]
 offset_left = 172.0
 offset_top = 601.0
 offset_right = 376.0
@@ -125,11 +129,11 @@ theme_override_fonts/font = ExtResource("1_06n5i")
 theme_override_font_sizes/font_size = 24
 text = "[name]"
 
-[node name="CodeBlockCount" type="Node2D" parent="."]
+[node name="CodeBlockCount" type="Node2D" parent="PanelContainer"]
 position = Vector2(845, 0)
 script = SubResource("GDScript_rlgpc")
 
-[node name="CodeBlockLabel" type="Label" parent="CodeBlockCount"]
+[node name="CodeBlockLabel" type="Label" parent="PanelContainer/CodeBlockCount"]
 offset_left = 38.0
 offset_top = 21.0
 offset_right = 236.0
@@ -146,7 +150,7 @@ theme_override_font_sizes/font_size = 24
 text = "Código(s):"
 metadata/_edit_use_anchors_ = true
 
-[node name="CodeBlockCountLabel" type="Label" parent="CodeBlockCount"]
+[node name="CodeBlockCountLabel" type="Label" parent="PanelContainer/CodeBlockCount"]
 offset_left = 238.0
 offset_top = 23.0
 offset_right = 336.0
@@ -163,15 +167,12 @@ theme_override_font_sizes/font_size = 24
 text = "999"
 metadata/_edit_use_anchors_ = true
 
+[node name="PauseMenu" parent="PanelContainer" instance=ExtResource("5_d7328")]
+visible = false
+layout_mode = 2
+metadata/_edit_use_anchors_ = true
+
 [node name="GameOver" parent="." instance=ExtResource("4_wklvx")]
 visible = false
 
-[node name="PauseMenu" parent="." instance=ExtResource("5_d7328")]
-visible = false
-anchors_preset = 0
-anchor_right = 0.0
-anchor_bottom = 0.0
-grow_horizontal = 1
-grow_vertical = 1
-
-[connection signal="timeout" from="Countdown/Timer" to="Countdown" method="_on_timer_timeout"]
+[connection signal="timeout" from="PanelContainer/Countdown/Timer" to="PanelContainer/Countdown" method="_on_timer_timeout"]
