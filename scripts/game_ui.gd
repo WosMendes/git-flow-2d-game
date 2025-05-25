@@ -3,13 +3,13 @@ extends CanvasLayer
 @export var taskCountdownTimer: int = 600
 
 @onready var game_manager = %GameManager
-@onready var progress_label = $TaskProgress/ProgressLabel
-@onready var percentage_label = $TaskProgress/PercentageLabel
-@onready var codeBlock_label = $CodeBlockCount/CodeBlockLabel
-@onready var codeBlock_count_label = $CodeBlockCount/CodeBlockCountLabel
-@onready var branch_name_label = $BranchName/BranchNameLabel
-@onready var timer = $Countdown/Timer
-@onready var countdown_text = $Countdown/CountdownText
+@onready var progress_label = $PanelContainer/TaskProgress/ProgressLabel
+@onready var percentage_label = $PanelContainer/TaskProgress/PercentageLabel
+@onready var codeBlock_label = $PanelContainer/CodeBlockCount/CodeBlockLabel
+@onready var codeBlock_count_label = $PanelContainer/CodeBlockCount/CodeBlockCountLabel
+@onready var branch_name_label = $PanelContainer/BranchName/BranchNameLabel
+@onready var timer = $PanelContainer/Countdown/Timer
+@onready var countdown_text = $PanelContainer/Countdown/CountdownText
 
 func _ready():
 	if !game_manager.hasToShowProgress:
