@@ -101,7 +101,7 @@ func _on_confirmation_dialog_confirmed():
 		_resetTerminalValues()
 		confirmation_dialog.hide()
 		get_tree().change_scene_to_file("res://scenes/tutorial_branch.tscn")
-	elif terminal_line.text == "git checkout -b feature_01":
+	elif terminal_line.text == "git checkout -b feature_01" and Global.current_branch_name == "develop":
 		game_manager.current_branch = "feature_01"
 		command_status.text = "Status: SUCESSO!"
 		confirmation_dialog.gui_disable_input = true
@@ -109,6 +109,14 @@ func _on_confirmation_dialog_confirmed():
 		_resetTerminalValues()
 		confirmation_dialog.hide()
 		get_tree().change_scene_to_file("res://scenes/feature_01.tscn")
+	elif terminal_line.text == "git checkout -b hotfix_01" and Global.current_branch_name == "main":
+		game_manager.current_branch = "hotfix_01"
+		command_status.text = "Status: SUCESSO!"
+		confirmation_dialog.gui_disable_input = true
+		await get_tree().create_timer(2).timeout
+		_resetTerminalValues()
+		confirmation_dialog.hide()
+		get_tree().change_scene_to_file("res://scenes/hotfix_01.tscn")
 	else:
 		command_status.text = "Status: Comando incorreto!"
 		terminal_line.text = ""
