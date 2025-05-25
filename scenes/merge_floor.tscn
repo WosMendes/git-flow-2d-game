@@ -9,7 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://cg75t0l2b82yi" path="res://scenes/game_manager.tscn" id="7_yjyj1"]
 [ext_resource type="PackedScene" uid="uid://ln2lxrtq7b38" path="res://scenes/push_terminal.tscn" id="8_m0mwl"]
 [ext_resource type="FontFile" uid="uid://dnmad0xyotfer" path="res://assets/fonts/PixelOperator8.ttf" id="9_x0ng1"]
-[ext_resource type="Script" path="res://scenes/destination_branch_label.gd" id="10_1qhbs"]
+[ext_resource type="Script" path="res://scripts/destination_branch_label.gd" id="10_1qhbs"]
 [ext_resource type="PackedScene" uid="uid://uicnivuoefug" path="res://scenes/game_ui.tscn" id="10_nq1n7"]
 [ext_resource type="AudioStream" uid="uid://racwvvtp2gy6" path="res://assets/music/task_1_track.ogg" id="11_nfl45"]
 [ext_resource type="PackedScene" uid="uid://dvfbydulkannc" path="res://scenes/platform.tscn" id="12_ghxae"]
