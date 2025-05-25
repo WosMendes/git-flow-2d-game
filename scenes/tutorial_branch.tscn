@@ -1372,7 +1372,10 @@ position = Vector2(-2686, 223)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 position = Vector2(0, -38)
-zoom = Vector2(4, 4)
+zoom = Vector2(3, 3)
+drag_vertical_enabled = true
+drag_top_margin = 0.6
+drag_bottom_margin = 0.0
 
 [node name="Terminals" type="Node" parent="."]
 
