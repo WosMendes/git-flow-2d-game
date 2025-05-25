@@ -2,7 +2,7 @@ extends Node2D
 
 @onready var game_manager = %GameManager
 
-const SPEED: float = 80
+@export var SPEED: float = 80
 var direction: int = 1
 @export var isStatic: bool = false
 @export var moveHorizontally: bool = true
