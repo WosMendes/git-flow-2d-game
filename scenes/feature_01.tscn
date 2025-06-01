@@ -1346,7 +1346,7 @@ unique_name_in_owner = true
 current_branch = "feature_01"
 playerSpawnLocations = [NodePath("../SpawnPoints/Marker2DLevel1"), NodePath("../SpawnPoints/Marker2DLevel2")]
 player = NodePath("../Player")
-progress_by_codeBlock = 50
+progress_by_codeBlock = 5
 
 [node name="GUI" parent="." instance=ExtResource("2_qocu7")]
 taskCountdownTimer = 240

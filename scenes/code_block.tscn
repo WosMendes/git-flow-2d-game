@@ -169,7 +169,7 @@ _data = {
 "pickup_animation": SubResource("Animation_iukw4")
 }
 
-[node name="Commit" type="Area2D"]
+[node name="CodeBlock" type="Area2D"]
 collision_mask = 2
 script = ExtResource("1_rbngc")
 
@@ -189,3 +189,5 @@ libraries = {
 }
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="tree_exited" from="." to="." method="_on_tree_exited"]
+[connection signal="tree_exited" from="PickcupSound" to="." method="_on_pickcup_sound_tree_exited"]

@@ -25,8 +25,6 @@ script/source = "extends Node2D
 script = ExtResource("1_2wtxt")
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
-offset_right = 40.0
-offset_bottom = 40.0
 
 [node name="Countdown" type="Node" parent="PanelContainer"]
 script = ExtResource("1_tweoo")

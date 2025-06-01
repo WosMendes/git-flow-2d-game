@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://baetmkc6r1wo2"]
+
+[ext_resource type="Script" path="res://scripts/hotfix_manager.gd" id="1_askrn"]
+
+[node name="HotFixManager" type="Node2D"]
+script = ExtResource("1_askrn")

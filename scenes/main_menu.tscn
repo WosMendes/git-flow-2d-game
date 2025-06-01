@@ -1334,10 +1334,10 @@ anchors_preset = 14
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-offset_left = 254.5
-offset_top = 113.0
-offset_right = 458.5
-offset_bottom = 137.0
+offset_left = 225.0
+offset_top = 107.0
+offset_right = 489.0
+offset_bottom = 131.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
@@ -1357,9 +1357,9 @@ anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
 offset_left = 255.0
-offset_top = 134.0
+offset_top = 131.0
 offset_right = 459.0
-offset_bottom = 158.0
+offset_bottom = 155.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
@@ -1386,7 +1386,7 @@ region_enabled = true
 region_rect = Rect2(32, 84, 48, 29)
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(356, 175)
+position = Vector2(356, 164)
 zoom = Vector2(4, 4)
 
 [node name="TutorialButton" type="Button" parent="."]

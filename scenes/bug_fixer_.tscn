@@ -1,0 +1,93 @@
+[gd_scene load_steps=7 format=3 uid="uid://cx64oagcnlqwy"]
+
+[ext_resource type="Script" path="res://scripts/bug_fixer_.gd" id="1_873ro"]
+[ext_resource type="Texture2D" uid="uid://78e47hxq32f8" path="res://assets/lab_assets/CyberLab/CL_Objects 16x16.png" id="2_3ky14"]
+[ext_resource type="FontFile" uid="uid://dnmad0xyotfer" path="res://assets/fonts/PixelOperator8.ttf" id="3_5a1yy"]
+[ext_resource type="AudioStream" uid="uid://wopebljbr8s7" path="res://assets/sounds/Pixel_55.wav" id="4_tiuc6"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8unjw"]
+size = Vector2(34, 15.75)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oq7us"]
+bg_color = Color(0.992157, 0, 0, 1)
+corner_radius_top_left = 1
+corner_radius_top_right = 1
+corner_radius_bottom_right = 1
+corner_radius_bottom_left = 1
+
+[node name="BugFixer" type="Node2D"]
+script = ExtResource("1_873ro")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, -8.125)
+shape = SubResource("RectangleShape2D_8unjw")
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D"]
+position = Vector2(0, -7)
+texture = ExtResource("2_3ky14")
+region_enabled = true
+region_rect = Rect2(66, 51, 28, 13)
+
+[node name="ConfirmationDialog" type="ConfirmationDialog" parent="."]
+title = "Terminal"
+initial_position = 1
+size = Vector2i(364, 158)
+ok_button_text = "Enviar"
+dialog_hide_on_ok = false
+dialog_autowrap = true
+cancel_button_text = "Cancelar"
+
+[node name="CommandStatus" type="Label" parent="ConfirmationDialog"]
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 356.0
+offset_bottom = 109.0
+text = "Status: Aguardando comando..."
+
+[node name="TerminalLine" type="LineEdit" parent="ConfirmationDialog"]
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 356.0
+offset_bottom = 109.0
+
+[node name="HintLabel" type="Label" parent="."]
+offset_left = -32.0
+offset_top = -41.0
+offset_right = 56.0
+offset_bottom = -18.0
+scale = Vector2(0.720001, 0.720001)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 1
+theme_override_constants/outline_size = 3
+theme_override_fonts/font = ExtResource("3_5a1yy")
+theme_override_font_sizes/font_size = 8
+text = "Segure F"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+offset_left = -17.0
+offset_top = -24.0
+offset_right = 18.0
+offset_bottom = -19.0
+theme_override_styles/fill = SubResource("StyleBoxFlat_oq7us")
+step = 0.0
+show_percentage = false
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_tiuc6")
+volume_db = 1.0
+bus = &"SFX"
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
+[connection signal="canceled" from="ConfirmationDialog" to="." method="_on_confirmation_dialog_canceled"]
+[connection signal="close_requested" from="ConfirmationDialog" to="." method="_on_confirmation_dialog_close_requested"]
+[connection signal="confirmed" from="ConfirmationDialog" to="." method="_on_confirmation_dialog_confirmed"]
+[connection signal="custom_action" from="ConfirmationDialog" to="ConfirmationDialog" method="_on_custom_action"]

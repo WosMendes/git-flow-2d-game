@@ -1613,6 +1613,7 @@ scale = Vector2(0.75, 0.75)
 [node name="Enemy4" parent="." instance=ExtResource("13_ipx50")]
 position = Vector2(391, 217)
 scale = Vector2(0.75, 0.75)
+SPEED = 60.0
 
 [node name="Enemy5" parent="." instance=ExtResource("13_ipx50")]
 position = Vector2(1818, 219)
@@ -1664,6 +1665,7 @@ scale = Vector2(0.5, 0.5)
 moveHorizontally = false
 
 [node name="CheckPoint" type="Area2D" parent="." node_paths=PackedStringArray("checkPointPositon", "initialPosition")]
+position = Vector2(744, 0)
 collision_mask = 2
 script = ExtResource("14_53g28")
 checkPointPositon = NodePath("Marker2D")

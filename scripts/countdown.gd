@@ -8,7 +8,6 @@ extends Node
 func _ready():
 	timer.wait_time = gui.taskCountdownTimer
 	timer.start()
-	
 
 func show_timer():
 	var time_left: float = timer.time_left
