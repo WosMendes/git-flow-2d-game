@@ -6,3 +6,4 @@ var isInPushFloor: bool = false
 var isInMergeFloor: bool = false
 var isFixingBugsPermitted = false
 var isHotfixComplete = false
+var isTaskCountdownOver = false

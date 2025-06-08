@@ -1392,7 +1392,7 @@ offset_right = -2734.0
 offset_bottom = 184.0
 theme_override_fonts/font = ExtResource("10_s3o7x")
 theme_override_font_sizes/font_size = 8
-text = "Você deve encontrar todos os códigos com bug espalhados
+text = "Você deve encontrar todos os códigos com bugs espalhados
 pela branch antes que o prazo acabe... CORRE!!!"
 horizontal_alignment = 1
 vertical_alignment = 1

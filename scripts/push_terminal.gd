@@ -6,15 +6,21 @@ extends Node2D
 @onready var terminal_line = $ConfirmationDialog/TerminalLine
 @onready var command_status = $ConfirmationDialog/CommandStatus
 
+var isGitPullDone = false
+
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	hint_label.hide()
 	confirmation_dialog.visible = false
+	isGitPullDone = false
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
+	if Global.isTaskCountdownOver:
+		_resetTerminalValues()
+		confirmation_dialog.hide()
 	if Input.is_action_just_pressed("open_terminal") and hint_label.visible == true:
 		confirmation_dialog.show()
 		terminal_line.grab_focus()
@@ -43,7 +49,7 @@ func _on_confirmation_dialog_canceled():
 
 
 func _on_confirmation_dialog_confirmed():
-	if terminal_line.text == "git commit" and game_manager.codeBlocks > 0:
+	if terminal_line.text == "git commit" and (game_manager.codeBlocks > 0 or game_manager.taskProgress > 0):
 		command_status.text = "Status: SUCESSO!"
 		confirmation_dialog.gui_disable_input = true
 		await get_tree().create_timer(2).timeout
@@ -83,8 +89,11 @@ func _on_confirmation_dialog_confirmed():
 		Global.isInPushFloor = false
 		get_tree().change_scene_to_file("res://scenes/success.tscn")
 	elif terminal_line.text == "git pull":
+		if game_manager.current_branch == "develop" or game_manager.current_branch == "main":
+			isGitPullDone = true
 		command_status.text = "Status: SUCESSO!"
 		confirmation_dialog.gui_disable_input = true
+		confirmation_dialog.gui_release_focus()
 		await get_tree().create_timer(2).timeout
 		command_status.text = "Atualizando branch..."
 		await get_tree().create_timer(2).timeout
@@ -102,19 +111,29 @@ func _on_confirmation_dialog_confirmed():
 		confirmation_dialog.hide()
 		get_tree().change_scene_to_file("res://scenes/tutorial_branch.tscn")
 	elif terminal_line.text == "git checkout -b feature_01" and Global.current_branch_name == "develop":
+		if !isGitPullDone:
+			command_status.text = "Status: Primeiro faça git pull!"
+			terminal_line.text = ""
+			return
 		game_manager.current_branch = "feature_01"
 		command_status.text = "Status: SUCESSO!"
 		confirmation_dialog.gui_disable_input = true
 		await get_tree().create_timer(2).timeout
 		_resetTerminalValues()
+		isGitPullDone = false
 		confirmation_dialog.hide()
 		get_tree().change_scene_to_file("res://scenes/feature_01.tscn")
 	elif terminal_line.text == "git checkout -b hotfix_01" and Global.current_branch_name == "main":
+		if !isGitPullDone:
+			command_status.text = "Status: Primeiro faça git pull!"
+			terminal_line.text = ""
+			return
 		game_manager.current_branch = "hotfix_01"
 		command_status.text = "Status: SUCESSO!"
 		confirmation_dialog.gui_disable_input = true
 		await get_tree().create_timer(2).timeout
 		_resetTerminalValues()
+		isGitPullDone = false
 		confirmation_dialog.hide()
 		get_tree().change_scene_to_file("res://scenes/hotfix_01.tscn")
 	else:

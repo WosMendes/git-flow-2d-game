@@ -19,5 +19,7 @@ func _process(_delta):
 	countdown_text.text = "%02d:%02d" % show_timer()
 
 func _on_timer_timeout():
+	Global.isTaskCountdownOver = true
+	await get_tree().create_timer(0.5).timeout
 	get_tree().paused = true
 	game_over.show()
