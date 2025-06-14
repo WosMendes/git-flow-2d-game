@@ -1318,7 +1318,6 @@ player = NodePath("../Player")
 codeBugs = [NodePath("../CodeBugs/CodeBug"), NodePath("../CodeBugs/CodeBug4"), NodePath("../CodeBugs/CodeBug5"), NodePath("../CodeBugs/CodeBug6"), NodePath("../CodeBugs/CodeBug7"), NodePath("../CodeBugs/CodeBug8"), NodePath("../CodeBugs/CodeBug9"), NodePath("../CodeBugs/CodeBug10"), NodePath("../CodeBugs/CodeBug11"), NodePath("../CodeBugs/CodeBug12"), NodePath("../CodeBugs/CodeBug13"), NodePath("../CodeBugs/CodeBug2"), NodePath("../CodeBugs/CodeBug3"), NodePath("../CodeBugs/CodeBug14")]
 
 [node name="GUI" parent="." instance=ExtResource("2_wfppo")]
-taskCountdownTimer = 210
 
 [node name="TileMaps" type="Node" parent="."]
 

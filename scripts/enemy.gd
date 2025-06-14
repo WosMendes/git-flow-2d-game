@@ -14,6 +14,8 @@ var direction: int = 1
 
 func _ready():
 	killzone.playerDied.connect(_on_player_died)
+	if Global.isCasualMode:
+		SPEED *= 0.75
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):

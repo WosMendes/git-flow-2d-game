@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://uicnivuoefug"]
+[gd_scene load_steps=13 format=3 uid="uid://uicnivuoefug"]
 
 [ext_resource type="Script" path="res://scripts/game_ui.gd" id="1_2wtxt"]
 [ext_resource type="FontFile" uid="uid://dnmad0xyotfer" path="res://assets/fonts/PixelOperator8.ttf" id="1_06n5i"]
@@ -20,6 +20,18 @@ script/source = "extends Node2D
 ##func _process(delta):
 	##percentage_label.text = str(game_manager.taskProgress) + \"%\"
 "
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_m2pf0"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_a2kbm"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_a3ew3"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xxj7y"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5msbm"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_73yb0"]
 
 [node name="GUI" type="CanvasLayer"]
 script = ExtResource("1_2wtxt")
@@ -127,6 +139,32 @@ theme_override_fonts/font = ExtResource("1_06n5i")
 theme_override_font_sizes/font_size = 24
 text = "[name]"
 
+[node name="SoundButton" type="Node2D" parent="PanelContainer"]
+position = Vector2(845, 0)
+script = SubResource("GDScript_rlgpc")
+
+[node name="SoundButton" type="CheckButton" parent="PanelContainer/SoundButton"]
+offset_left = 159.0
+offset_top = 601.0
+offset_right = 276.0
+offset_bottom = 633.0
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("1_06n5i")
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxEmpty_m2pf0")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_a2kbm")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_a3ew3")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_xxj7y")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_5msbm")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_73yb0")
+button_pressed = true
+action_mode = 0
+text = "Som"
+
 [node name="CodeBlockCount" type="Node2D" parent="PanelContainer"]
 position = Vector2(845, 0)
 script = SubResource("GDScript_rlgpc")
@@ -174,3 +212,4 @@ metadata/_edit_use_anchors_ = true
 visible = false
 
 [connection signal="timeout" from="PanelContainer/Countdown/Timer" to="PanelContainer/Countdown" method="_on_timer_timeout"]
+[connection signal="pressed" from="PanelContainer/SoundButton/SoundButton" to="." method="_on_sound_button_pressed"]

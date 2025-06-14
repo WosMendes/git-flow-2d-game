@@ -1349,7 +1349,6 @@ player = NodePath("../Player")
 progress_by_codeBlock = 5
 
 [node name="GUI" parent="." instance=ExtResource("2_qocu7")]
-taskCountdownTimer = 240
 
 [node name="TileMaps" type="Node" parent="."]
 

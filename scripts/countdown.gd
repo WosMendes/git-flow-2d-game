@@ -6,6 +6,10 @@ extends Node
 @onready var game_over = $"../../GameOver"
 
 func _ready():
+	if Global.isCasualMode:
+		gui.taskCountdownTimer = 1200
+	else:
+		gui.taskCountdownTimer = 240
 	timer.wait_time = gui.taskCountdownTimer
 	timer.start()
 
