@@ -41,6 +41,8 @@ Abra o projeto na Godot Engine.
 
 Execute o jogo e divirta-se aprendendo Git!
 
+Ou baixe o executável para Windows aqui (Versão mais recente - 0.6.0): https://drive.google.com/drive/u/1/folders/1aSqeICVXPWvSS1O_APFtNqAvlYcb0_RJ 
+
 
 ## 📜 Licença
 
