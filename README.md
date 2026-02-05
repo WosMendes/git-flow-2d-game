@@ -1,11 +1,11 @@
-# Git Flow 2D
+# Git Flow Quest
 
 
-![Screenshot_1](https://github.com/user-attachments/assets/c7d67f42-92a4-47e5-9283-7488acca9c3b)
+![Screenshot_1](https://github.com/user-attachments/assets/fd6a370b-96c1-4990-ac95-274a0b63cb29)
 
  ## 🎮 Sobre o Projeto
 
-Git Flow 2D é um jogo de plataforma 2D desenvolvido para ensinar de forma interativa e divertida o fluxo de trabalho com Git. O jogador assume o papel de um programador dentro de um ambiente virtual, onde precisa coletar commits.
+Git Flow Quest é um jogo de plataforma 2D desenvolvido para ensinar de forma interativa e divertida o fluxo de trabalho com Git. O jogador assume o papel de um programador dentro de um ambiente virtual, onde precisa coletar commits. <br>
 
 ## 🚀 Tecnologias Utilizadas
 
@@ -18,6 +18,12 @@ Plataformas: PC (futuro suporte para mobile pode ser considerado)
 ## 🎯 Objetivo do Jogo
 
 Ensinar estudantes de programação e profissionais da área a lidar com o fluxo de trabalho no Git por meio de uma experiência gamificada.
+
+## Demonstração em vídeo
+
+Para conferir um pouco do funcionamento do jogo, assista os vídeos neste link do Google Drive:  
+https://drive.google.com/drive/folders/1QZRnbfdOG4EE_uKkJyIvP_lZje355r5E?usp=sharing
+
 
 ## 🕹️ Como Jogar
 
